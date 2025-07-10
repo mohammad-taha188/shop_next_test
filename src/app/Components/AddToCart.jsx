@@ -7,7 +7,7 @@ export default function AddToCart({ product, color = "red" }) {
 
   useEffect(() => {
     setIsToCart(
-      JSON.parse(localStorage?.getItem("products")).find((p) => {
+      JSON.parse(localStorage?.getItem("products"))?.find((p) => {
         return p.id == product.id;
       })
     );
