@@ -21,6 +21,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <div className="Header flex justify-between m-3">
+          <Link href="/" className="text-2xl font-bold">
+            SHOP
+          </Link>
+          <Link href="/cart">
+            <button className="btn btn-green cursor-pointer">Cart</button>
+          </Link>
+        </div>
         {children}
       </body>
     </html>

@@ -1,24 +1,23 @@
-import Link from "next/link";
-import data from "./data";
+import ProductsList from "./Components/ProductsList";
+
+export function generateMetadata() {
+  return {
+    title: "shop",
+    description: "this a shop",
+    openGraph: {
+      title: "shop social media",
+      description: "this a shop social media",
+    },
+  };
+}
 
 export default async function Home() {
-  let products = Object.entries(data);
+  let res = await fetch("https://fakestoreapi.com/products");
+  let products = await res.json();
 
   return (
-    <div>
-      <ul className="flex flex-col m-3 gap-2.5">
-        {products.map((product, index) => {
-          return (
-            <Link
-              href={`/${product[0]}`}
-              className=""
-              key={product[1][index].id}
-            >
-              {product[0]}
-            </Link>
-          );
-        })}
-      </ul>
+    <div className="">
+      <ProductsList products={products} />
     </div>
   );
 }
